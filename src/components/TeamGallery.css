@@ -1,0 +1,213 @@
+.team-gallery {
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+/* Team Member Card */
+.team-member-card {
+    position: relative;
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.team-member-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.team-member-card:hover::before {
+    opacity: 1;
+}
+
+/* Member Image */
+.member-image-wrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.member-image {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .member-image {
+    transform: scale(1.05);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .member-photo {
+    transform: scale(1.1);
+}
+
+/* Hover Overlay */
+.member-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.social-icon:hover {
+    background: var(--primary-gradient);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+/* Expertise Badge */
+.expertise-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .expertise-badge {
+    transform: translateX(-50%) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Member Info */
+.member-info {
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.member-name {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .member-name {
+    color: var(--accent-navy);
+    transform: translateY(-2px);
+}
+
+.member-role {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .member-role {
+    color: var(--text-primary);
+}
+
+/* Decorative Corner */
+.card-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0.2;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    transition: all var(--transition-base);
+}
+
+.team-member-card:hover .card-corner {
+    opacity: 0.4;
+    width: 100px;
+    height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .team-member-card {
+        padding: 1.5rem;
+    }
+
+    .member-photo {
+        object-fit: cover;
+    }
+
+    .member-name {
+        font-size: 1.25rem;
+    }
+
+    .member-role {
+        font-size: 0.95rem;
+    }
+
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}

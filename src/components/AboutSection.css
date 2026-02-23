@@ -1,0 +1,239 @@
+.owner-profile {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.owner-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+/* Owner Image Section */
+.owner-image-section {
+    position: relative;
+}
+
+/* Owner Image Frame */
+.owner-image-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
+}
+
+.owner-image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10, 25, 47, 0.6) 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.owner-photo-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.owner-image-frame:hover .owner-photo-full {
+    transform: scale(1.1);
+}
+
+/* Premium Badge */
+.owner-badge-premium {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    padding: 1.25rem 2rem;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    min-width: 240px;
+}
+
+.badge-icon {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.badge-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.badge-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.badge-subtitle {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Owner Info */
+.owner-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.owner-quote {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.owner-quote:hover {
+    transform: translateX(10px);
+}
+
+.quote-icon {
+    font-size: 2.5rem;
+    color: var(--accent-navy);
+    opacity: 0.3;
+    margin-bottom: 1rem;
+}
+
+.quote-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.owner-name {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.owner-title {
+    font-size: 1.2rem;
+    color: var(--accent-navy);
+    font-weight: 600;
+}
+
+.owner-bio {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Owner Stats */
+.owner-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    transition: all var(--transition-base);
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--glass-shadow);
+    border-color: var(--accent-gold);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Owner Social */
+.owner-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.owner-social-link {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: all var(--transition-base);
+}
+
+.owner-social-link:hover {
+    background: var(--primary-gradient);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .owner-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .owner-image-wrapper {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .owner-image-wrapper {
+        padding: 2rem;
+    }
+
+    .placeholder-emoji {
+        font-size: 8rem;
+    }
+
+    .owner-name {
+        font-size: 2rem;
+    }
+
+    .owner-title {
+        font-size: 1.1rem;
+    }
+
+    .owner-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .quote-text {
+        font-size: 1.05rem;
+    }
+
+    .pattern-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+}

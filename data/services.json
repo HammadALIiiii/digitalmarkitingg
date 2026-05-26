@@ -1,0 +1,282 @@
+[
+  {
+    "id": 2,
+    "category": "Digital Marketing",
+    "title": "Google Ads",
+    "description": "Search, Display, and Shopping ads that place you in front of customers.",
+    "icon": "\ud83d\udd0d",
+    "gradient": "linear-gradient(135deg, #4285F4 0%, #34a853 100%)"
+  },
+  {
+    "id": 3,
+    "category": "Digital Marketing",
+    "title": "Social Media Management",
+    "description": "Full-service handling of your social profiles to build community.",
+    "icon": "\ud83e\udd1d",
+    "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+  },
+  {
+    "id": 4,
+    "category": "Digital Marketing",
+    "title": "SEO",
+    "description": "Organic growth strategies to rank #1 on search engines long-term.",
+    "icon": "\ud83d\udcc8",
+    "gradient": "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+  },
+  {
+    "id": 5,
+    "category": "Website Development",
+    "title": "Business Websites",
+    "description": "Professional corporate sites that establish authority and generate leads.",
+    "icon": "\ud83c\udfe2",
+    "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+  },
+  {
+    "id": 6,
+    "category": "Website Development",
+    "title": "E-commerce Stores",
+    "description": "Seamless shopping experiences built on Shopify, WooCommerce, or Wix.",
+    "icon": "\ud83d\udecd\ufe0f",
+    "gradient": "linear-gradient(135deg, #95BF47 0%, #5E8E3E 100%)"
+  },
+  {
+    "id": 7,
+    "category": "Website Development",
+    "title": "Custom Websites",
+    "description": "Tailor-made web solutions for unique business requirements.",
+    "icon": "\u269b\ufe0f",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+  },
+  {
+    "id": 8,
+    "category": "App Development",
+    "title": "Android Apps",
+    "description": "Robust and scalable mobile applications for the Google Play Store.",
+    "icon": "\ud83e\udd16",
+    "gradient": "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)"
+  },
+  {
+    "id": 9,
+    "category": "App Development",
+    "title": "iOS Apps",
+    "description": "Premium Apple ecosystem apps designed for iPhone and iPad.",
+    "icon": "\ud83c\udf4e",
+    "gradient": "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+  },
+  {
+    "id": 10,
+    "category": "App Development",
+    "title": "Web Apps",
+    "description": "Progressive Web Apps that work on any device and browser.",
+    "icon": "\ud83c\udf10",
+    "gradient": "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)"
+  },
+  {
+    "id": 11,
+    "category": "Branding & Design",
+    "title": "Logo Design",
+    "description": "Memorable brand marks that represent your values and vision.",
+    "icon": "\ud83c\udfa8",
+    "gradient": "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)"
+  },
+  {
+    "id": 12,
+    "category": "Branding & Design",
+    "title": "Brand Identity",
+    "description": "Full visual identity systems including typography and color palettes.",
+    "icon": "\ud83d\udc8e",
+    "gradient": "linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)"
+  },
+  {
+    "id": 13,
+    "category": "Branding & Design",
+    "title": "UI/UX Design",
+    "description": "User-centric research and interface design for apps and websites.",
+    "icon": "\u2728",
+    "gradient": "linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%)"
+  },
+  {
+    "id": 14,
+    "category": "Automation & AI Solutions",
+    "title": "Chatbots",
+    "description": "Intelligent AI-driven bots for customer support and sales qualifying.",
+    "icon": "\ud83d\udcac",
+    "gradient": "linear-gradient(135deg, #4de8b2 0%, #15a8bf 100%)"
+  },
+  {
+    "id": 15,
+    "category": "Automation & AI Solutions",
+    "title": "CRM Setup",
+    "description": "GoHighLevel and specialized CRM builds for sales team efficiency.",
+    "icon": "\u2699\ufe0f",
+    "gradient": "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)"
+  },
+  {
+    "id": 16,
+    "category": "Automation & AI Solutions",
+    "title": "Business Automation",
+    "description": "Workflow optimization using Zapier, Make.com, and custom scripts.",
+    "icon": "\ud83d\ude80",
+    "gradient": "linear-gradient(135deg, #ff0844 0%, #ffb199 100%)"
+  },
+  {
+    "id": 17,
+    "category": "Digital Products",
+    "title": "Website Templates",
+    "description": "Premium, ready-to-launch templates for various industries.",
+    "icon": "\ud83d\udcc4",
+    "gradient": "linear-gradient(135deg, #ebbba7 0%, #cfc7f8 100%)"
+  },
+  {
+    "id": 18,
+    "category": "Digital Products",
+    "title": "Marketing Tools",
+    "description": "Proprietary software and scripts to supercharge your growth.",
+    "icon": "\ud83d\udee0\ufe0f",
+    "gradient": "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+  },
+  {
+    "id": 19,
+    "category": "Product Catalog",
+    "title": "Nexus AI: Enterprise Dashboard",
+    "description": "A cutting-edge SaaS dashboard template with real-time data visualization and AI insights integration.",
+    "icon": "\ud83d\udcca",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1551288049-bbbda536ad31?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "React & Tailwind CSS",
+      "Dark Mode Support",
+      "Interactive Charts",
+      "Role-based Access"
+    ],
+    "demoUrl": "",
+    "type": "Website Templates"
+  },
+  {
+    "id": 20,
+    "category": "Product Catalog",
+    "title": "EstatePro: Luxury Real Estate",
+    "description": "Premium web solution for high-end real estate agencies with advanced property search and virtual tour support.",
+    "icon": "\ud83c\udfe1",
+    "gradient": "linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "Property Map Integration",
+      "Lead Management",
+      "Premium UI Kit",
+      "Social Sharing"
+    ],
+    "demoUrl": "",
+    "type": "Website Templates"
+  },
+  {
+    "id": 21,
+    "category": "Product Catalog",
+    "title": "SwiftCommerce: Next-Gen Store",
+    "description": "High-performance e-commerce template optimized for conversion and lightning-fast page loads.",
+    "icon": "\ud83d\uded2",
+    "gradient": "linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1556742049-04ff4d87214d?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "One-Click Checkout",
+      "Advanced Filtering",
+      "SEO Optimized",
+      "Mobile First"
+    ],
+    "demoUrl": "",
+    "type": "Website Templates"
+  },
+  {
+    "id": 22,
+    "category": "Product Catalog",
+    "title": "Astra Pro: Executive Theme",
+    "description": "Multi-purpose WordPress-style theme built for high-scale corporate agencies and consulting firms.",
+    "icon": "\ud83c\udfa8",
+    "gradient": "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "Elementor Ready",
+      "WooCommerce Sync",
+      "Custom Headers",
+      "Mega Menu Support"
+    ],
+    "demoUrl": "",
+    "type": "Website Templates"
+  },
+  {
+    "id": 23,
+    "category": "Product Catalog",
+    "title": "Marketing OS: Growth Hub",
+    "description": "A comprehensive operating system for digital marketers to track campaigns, ROI, and client reporting.",
+    "icon": "\ud83d\ude80",
+    "gradient": "linear-gradient(135deg, #6a11cb 0%, #2575fc 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1551288049-bbbda536ad31?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "KPI Dashboard",
+      "Automated Reports",
+      "Multi-Platform Sync",
+      "Team Collaboration"
+    ],
+    "demoUrl": "",
+    "type": "Marketing Tools"
+  },
+  {
+    "id": 24,
+    "category": "Product Catalog",
+    "title": "Zenith AI: CRM Solution",
+    "description": "Next-generation CRM for agencies to manage leads, pipelines, and customer relations with built-in AI assistant.",
+    "icon": "\ud83d\udcbc",
+    "gradient": "linear-gradient(135deg, #00b4db 0%, #0083b0 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "Lead Scoring",
+      "Email Automation",
+      "Sales Pipeline",
+      "24/7 AI Support"
+    ],
+    "demoUrl": "",
+    "type": "Marketing Tools"
+  },
+  {
+    "id": 25,
+    "category": "Product Catalog",
+    "title": "Titan: Visual Page Builder",
+    "description": "Drag-and-drop website builder for high-conversion landing pages and complex corporate layouts.",
+    "icon": "\ud83c\udfd7\ufe0f",
+    "gradient": "linear-gradient(135deg, #f857a6 0%, #ff5858 100%)",
+    "screenshots": [
+      "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=1200",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+    ],
+    "features": [
+      "60+ Widgets",
+      "Global Styles",
+      "Responsive Editing",
+      "Template Library"
+    ],
+    "demoUrl": "",
+    "type": "Marketing Tools"
+  }
+]

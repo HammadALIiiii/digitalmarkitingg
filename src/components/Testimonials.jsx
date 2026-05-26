@@ -9,25 +9,25 @@ const Testimonials = () => {
 
     const testimonials = [
         {
-            name: 'Sarah Johnson',
-            role: 'CEO, TechStart Inc.',
-            image: 'https://images.unsplash.com/photo-1494433222041-356d79cabe82?auto=format&fit=crop&q=80&w=200',
+            name: 'Abdul Rahman',
+            role: 'CEO, Al-Futtaim Tech',
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
             rating: 5,
-            text: 'Working with Zentrix was an absolute game-changer. Their attention to detail and innovative approach exceeded all our expectations.',
+            text: 'Zentrix transformed our digital presence in just 3 months. Their SEO dominance and targeted ad campaigns delivered a 300% increase in qualified leads.',
         },
         {
-            name: 'Michael Chen',
-            role: 'Founder, DesignHub',
+            name: 'Sarah Bin Zayed',
+            role: 'Marketing Director, Emirates Group',
+            image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=200',
+            rating: 5,
+            text: 'The most professional agency we have worked with in Dubai. Their attention to detail in branding and user experience is truly world-class.',
+        },
+        {
+            name: 'David Miller',
+            role: 'Founder, Global Retail Hub',
             image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
             rating: 5,
-            text: 'The team delivered a stunning website that perfectly captures our brand. The 3D effects and animations are simply breathtaking!',
-        },
-        {
-            name: 'Emily Rodriguez',
-            role: 'Marketing Director, GrowthCo',
-            image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200',
-            rating: 5,
-            text: 'Outstanding work! They transformed our vision into reality with incredible precision and creativity. Highly recommended!',
+            text: 'Automating our sales pipeline with Zentrix was a game-changer. We now operate at twice the speed with half the manual overhead. Exceptional ROI.',
         },
     ]
 

@@ -54,7 +54,6 @@ const PortfolioPreview = () => {
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             onMouseEnter={() => setHoveredIndex(index)}
                             onMouseLeave={() => setHoveredIndex(null)}
-                            whileHover={{ y: -10 }}
                         >
                             <img
                                 className="portfolio-bg"

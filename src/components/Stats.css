@@ -16,12 +16,18 @@
     text-align: center;
     overflow: hidden;
     transition: all var(--transition-base);
+    border: 1px solid transparent;
+}
+
+.stat-card:hover {
+    border-color: var(--glass-border);
+    background: var(--glass-bg);
 }
 
 .stat-value {
     font-size: 4rem;
     font-weight: 800;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--font-display);
     margin-bottom: 0.5rem;
     line-height: 1;
 }

@@ -7,10 +7,10 @@ const Stats = () => {
     const isInView = useInView(sectionRef, { once: true })
 
     const stats = [
-        { value: 500, suffix: '+', label: 'Projects Completed', duration: 2 },
-        { value: 98, suffix: '%', label: 'Client Satisfaction', duration: 2.5 },
-        { value: 150, suffix: '+', label: 'Happy Clients', duration: 2 },
-        { value: 50, suffix: '+', label: 'Team Members', duration: 2.5 },
+        { value: 500, suffix: '%+', label: 'Average ROAS', duration: 2 },
+        { value: 12, suffix: 'M+', label: 'Ad Spend Managed', duration: 2.5 },
+        { value: 98, suffix: '%', label: 'Client Retention', duration: 2 },
+        { value: 250, suffix: '+', label: 'Global Case Studies', duration: 2.5 },
     ]
 
     return (
@@ -55,7 +55,6 @@ const StatCard = ({ stat, isInView, index }) => {
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            whileHover={{ y: -10, scale: 1.02 }}
         >
             <div className="stat-value gradient-text">
                 {count}{stat.suffix}

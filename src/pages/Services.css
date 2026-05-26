@@ -1,5 +1,5 @@
 .services-page {
-    padding-top: 5rem;
+    padding-top: var(--page-offset-top);
 }
 
 .services-hero {
@@ -211,10 +211,10 @@
 .modal-cta-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--btn-primary-bg);
     border: none;
     border-radius: 12px;
-    color: #fff;
+    color: var(--btn-primary-text);
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;

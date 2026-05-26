@@ -44,8 +44,8 @@
     font-weight: 600;
     font-size: 1.1rem;
     cursor: pointer;
-    color: #ffffff;
-    background: var(--primary-gradient);
+    color: var(--btn-primary-text);
+    background: var(--btn-primary-bg);
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
@@ -79,19 +79,20 @@
 
 .btn-cta-secondary {
     padding: 1.25rem 2.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--glass-border);
     border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 1.1rem;
+    font-family: var(--font-body);
     cursor: pointer;
     color: var(--text-primary);
-    background: transparent;
+    background: var(--bg-primary);
     transition: all var(--transition-base);
 }
 
 .btn-cta-secondary:hover {
-    border-color: rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-gold);
+    background: var(--bg-secondary);
 }
 
 .cta-decoration {

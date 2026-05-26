@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { submitWeb3Form } from '../lib/web3forms'
 import './Contact.css'
 
 const Contact = () => {
@@ -23,22 +24,19 @@ const Contact = () => {
         setStatus({ type: '', message: '' })
 
         try {
-            const response = await fetch('http://localhost:5000/api/messages', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+            await submitWeb3Form({
+                name: formData.name,
+                email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
             })
-
-            const data = await response.json()
-
-            if (data.success) {
-                setStatus({ type: 'success', message: 'Message sent! We\'ll get back to you soon.' })
-                setFormData({ name: '', email: '', subject: '', message: '' })
-            } else {
-                setStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
-            }
+            setStatus({ type: 'success', message: 'Message sent! We\'ll get back to you soon.' })
+            setFormData({ name: '', email: '', subject: '', message: '' })
         } catch (error) {
-            setStatus({ type: 'error', message: 'Could not connect to server. Is the backend running?' })
+            setStatus({
+                type: 'error',
+                message: error.message || 'Something went wrong. Please try again.',
+            })
         } finally {
             setIsSubmitting(false)
         }
@@ -71,21 +69,14 @@ const Contact = () => {
                                 <div className="info-icon">📧</div>
                                 <div>
                                     <div className="info-label">Email</div>
-                                    <div className="info-value">sulman12186@gmail.com</div>
+                                    <div className="info-value">info.zentrixagency@gmail.com</div>
                                 </div>
                             </div>
                             <div className="info-item">
                                 <div className="info-icon">📱</div>
                                 <div>
                                     <div className="info-label">Phone</div>
-                                    <div className="info-value">+1 (555) 987-6543</div>
-                                </div>
-                            </div>
-                            <div className="info-item">
-                                <div className="info-icon">📍</div>
-                                <div>
-                                    <div className="info-label">Location</div>
-                                    <div className="info-value">Digital Hub, Austin, TX</div>
+                                    <div className="info-value">+92 (311) 611-9950</div>
                                 </div>
                             </div>
                         </div>

@@ -60,16 +60,6 @@ const Services = () => {
             gradient: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
             delay: 0.5,
         },
-        {
-            id: 6,
-            title: 'Digital Products',
-            description: 'Premium website templates and specialized digital marketing tools.',
-            longDescription: 'Access our catalog of high-impact digital assets. From ready-to-launch website templates to proprietary marketing tools, we give you the edge in a competitive market.',
-            features: ['Website Templates', 'Marketing Scripts', 'Digital Assets', 'Ready-to-use Tools'],
-            icon: '🛠️',
-            gradient: 'linear-gradient(135deg, #ebbba7 0%, #cfc7f8 100%)',
-            delay: 0.6,
-        },
     ]
 
     return (

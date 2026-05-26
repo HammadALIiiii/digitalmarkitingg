@@ -1,0 +1,122 @@
+.why-choose-us {
+    background: var(--bg-primary);
+    position: relative;
+    border-top: 1px solid var(--glass-border);
+}
+
+.wcu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.wcu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.wcu-description {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.wcu-stats {
+    display: flex;
+    gap: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.wcu-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.wcu-stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    line-height: 1;
+}
+
+.wcu-stat-label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.wcu-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.wcu-feature-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-base);
+}
+
+.wcu-feature-card:hover {
+    box-shadow: 0 0 0 1px var(--accent-secondary), var(--glass-floating-shadow);
+    border-color: var(--accent-secondary);
+    background: var(--bg-secondary);
+}
+
+.wcu-feature-icon {
+    font-size: 2rem;
+    color: var(--accent-secondary);
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.wcu-feature-text h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.wcu-feature-text p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .wcu-grid {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .wcu-stats {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 768px) {
+    .wcu-feature-card {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .wcu-stats {
+        gap: 2rem;
+    }
+
+    .wcu-stat-number {
+        font-size: 2.5rem;
+    }
+}

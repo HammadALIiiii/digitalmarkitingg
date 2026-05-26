@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa'
+import { useTheme } from '../context/ThemeContext'
+import ZentrixLogo from './ZentrixLogo'
 import './Navbar.css'
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [footerInView, setFooterInView] = useState(false)
     const location = useLocation()
+    const { isDarkMode, toggleTheme } = useTheme()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -20,6 +24,24 @@ const Navbar = () => {
 
     useEffect(() => {
         setMobileMenuOpen(false)
+    }, [location])
+
+    /* Hide top logo when footer brand is visible — avoids double-logo clash */
+    useEffect(() => {
+        const footerBrand = document.getElementById('footer-brand')
+        if (!footerBrand) return undefined
+
+        const observer = new IntersectionObserver(
+            ([entry]) => setFooterInView(entry.isIntersecting),
+            {
+                root: null,
+                rootMargin: '-70px 0px 0px 0px',
+                threshold: 0.12,
+            }
+        )
+
+        observer.observe(footerBrand)
+        return () => observer.disconnect()
     }, [location])
 
     const navItems = [
@@ -38,14 +60,18 @@ const Navbar = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
         >
             <div className="navbar-container">
-                <Link to="/">
+                <Link
+                    to="/"
+                    className={`navbar-logo-link ${footerInView ? 'navbar-logo-link--hidden' : ''}`}
+                    aria-hidden={footerInView}
+                    tabIndex={footerInView ? -1 : 0}
+                >
                     <motion.div
                         className="navbar-logo"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                        whileHover={footerInView ? undefined : { scale: 1.05 }}
+                        whileTap={footerInView ? undefined : { scale: 0.95 }}
                     >
-                        <span className="logo-text gradient-text">ZENTRIX</span>
-                        <div className="logo-dot" />
+                        <ZentrixLogo variant="navbar" />
                     </motion.div>
                 </Link>
 
@@ -79,7 +105,7 @@ const Navbar = () => {
                 <div className="navbar-actions">
                     <Link to="/contact">
                         <motion.button
-                            className="cta-button glass"
+                            className="cta-button"
                             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(102, 126, 234, 0.5)' }}
                             whileTap={{ scale: 0.95 }}
                         >
@@ -87,10 +113,35 @@ const Navbar = () => {
                         </motion.button>
                     </Link>
 
+                    <motion.button
+                        type="button"
+                        className="theme-toggle-btn glass"
+                        onClick={toggleTheme}
+                        aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        style={{
+                            background: 'transparent',
+                            border: '1px solid var(--glass-border)',
+                            color: 'var(--text-primary)',
+                            padding: '0.6rem',
+                            borderRadius: '50%',
+                            display: 'flex',
+                            alignItems: 'center',
+                            cursor: 'pointer',
+                            marginLeft: '1rem'
+                        }}
+                    >
+                        {isDarkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+                    </motion.button>
+
                     {/* Mobile Menu Toggle */}
                     <motion.button
+                        type="button"
                         className="mobile-menu-toggle"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={mobileMenuOpen}
                         whileTap={{ scale: 0.9 }}
                     >
                         {mobileMenuOpen ? <FaTimes /> : <FaBars />}

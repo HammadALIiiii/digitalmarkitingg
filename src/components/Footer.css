@@ -63,7 +63,6 @@
 }
 
 .newsletter-input:focus {
-    outline: none;
     border-color: var(--accent-gold);
     background: var(--bg-primary);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -73,8 +72,8 @@
     padding: 1rem 2rem;
     border: none;
     border-radius: var(--radius-md);
-    background: var(--primary-gradient);
-    color: #ffffff;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
@@ -109,6 +108,8 @@
 .footer-logo:hover {
     transform: scale(1.05);
 }
+
+/* Logo sizing/theme handled by ZentrixLogo component */
 
 .footer-tagline {
     color: var(--text-secondary);
@@ -225,8 +226,8 @@
 }
 
 .social-link:hover {
-    background: var(--primary-gradient);
-    color: #ffffff;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
     border-color: transparent;
     transform: translateY(-5px);
     box-shadow: 0 10px 20px var(--glass-shadow);

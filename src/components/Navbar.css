@@ -4,17 +4,17 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.85);
+    background: var(--glass-floating);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
-    padding: 1rem 0;
-    box-shadow: 0 4px 30px var(--glass-shadow);
+    padding: 0.6rem 0;
+    box-shadow: var(--glass-floating-shadow);
 }
 
 .navbar-container {
@@ -26,27 +26,37 @@
     justify-content: space-between;
 }
 
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    max-width: 320px;
+    overflow: hidden;
+    transition:
+        opacity 0.35s ease,
+        max-width 0.4s cubic-bezier(0.2, 0, 0, 1),
+        margin 0.4s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.navbar-logo-link--hidden {
+    opacity: 0;
+    max-width: 0;
+    margin-right: 0;
+    pointer-events: none;
+}
+
 .navbar-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    flex-shrink: 0;
+    min-width: 0;
     cursor: pointer;
-    position: relative;
 }
 
-.logo-text {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-}
-
-.logo-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-gradient);
-    animation: glow 2s ease-in-out infinite;
+.navbar.scrolled .zentrix-logo-wrap--navbar .zentrix-logo-img {
+    width: min(260px, 54vw);
+    max-height: 64px;
 }
 
 .navbar-menu {
@@ -96,9 +106,10 @@
     border-radius: var(--radius-md);
     font-weight: 600;
     font-size: 0.95rem;
+    font-family: var(--font-body);
     cursor: pointer;
-    color: #ffffff;
-    background: var(--primary-gradient);
+    color: var(--btn-primary-text);
+    background: var(--btn-primary-bg);
     position: relative;
     overflow: hidden;
     transition: all var(--transition-base);

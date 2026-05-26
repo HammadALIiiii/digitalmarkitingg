@@ -1,136 +1,204 @@
+.service-card-wrapper {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* We'll use the --card-gradient variable passed from JSX for dynamic effects */
+}
+
 .service-card {
     position: relative;
-    padding: 3rem;
-    border-radius: var(--radius-xl);
-    background: var(--bg-primary);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    background: var(--bg-primary); /* Clean white background */
     border: 1px solid var(--glass-border);
-    transition: all var(--transition-smooth);
-    cursor: pointer;
     overflow: hidden;
-    height: 100%;
-    min-height: 350px;
+    cursor: pointer;
+    z-index: 1;
+    /* Smooth transition for border/shadows, the y-transform is handled by framer motion */
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Subtle ambient glow that bleeds into the card on hover */
+.card-ambient-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0;
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translate(-30%, -30%);
+}
+
+.service-card:hover .card-ambient-glow {
+    opacity: 0.15;
+    transform: translate(-10%, -10%) scale(1.2);
 }
 
 .service-card:hover {
-    background: var(--glass-floating);
-    border-color: var(--glass-floating-border);
-    transform: translateY(-10px);
-    box-shadow: var(--glass-floating-shadow);
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.1);
+    border-color: rgba(15, 23, 42, 0.1);
 }
 
-.card-glow {
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    opacity: 0;
-    transition: opacity var(--transition-slow);
-    filter: blur(60px);
-    pointer-events: none;
-}
-
-.service-card:hover .card-glow {
-    opacity: 0.15;
-}
-
-.card-content {
-    position: relative;
-    z-index: 2;
+/* Top Row (Icon & Arrow) */
+.card-top-row {
     display: flex;
-    flex-direction: column;
-    height: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
 }
 
-.service-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: var(--radius-md);
+.service-icon-box {
+    position: relative;
+    width: 65px;
+    height: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    position: relative;
-    overflow: hidden;
+    border-radius: 18px;
+    z-index: 2;
+    background: var(--bg-primary);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
 }
 
-.service-icon::before {
-    content: '';
+.icon-bg {
     position: absolute;
     inset: 0;
-    background: inherit;
-    opacity: 0.2;
-    filter: blur(20px);
+    border-radius: inherit;
+    opacity: 0.1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-.service-icon span {
+.icon-element {
+    font-size: 2rem;
     position: relative;
-    z-index: 1;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    z-index: 2;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .icon-bg {
+    opacity: 0.2;
+    transform: scale(1.05);
+}
+
+.service-card:hover .icon-element {
+    transform: scale(1.1);
+}
+
+/* Arrow Link */
+.service-arrow-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--bg-secondary);
+}
+
+.service-card:hover .service-arrow-link {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    transform: rotate(45deg);
+    border-color: var(--text-primary);
+}
+
+/* Body (Title & Text) */
+.card-body {
+    flex-grow: 1; /* This ensures the body takes up available space, pushing footer down */
+    display: flex;
+    flex-direction: column;
 }
 
 .service-title {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.6rem;
+    font-weight: 700;
     color: var(--text-primary);
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 .service-description {
     font-size: 1.05rem;
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin-bottom: auto;
+    line-height: 1.6;
+    margin-bottom: 2rem; /* Adjusted for better spacing */
 }
 
-.service-link {
-    display: inline-flex;
+/* Footer (Explore Text & Line) */
+.card-footer {
+    display: flex;
     align-items: center;
-    gap: 0.5rem;
-    background: none;
-    border: none;
-    color: var(--text-primary);
+    gap: 1rem;
+    margin-top: auto; /* Forces footer to the very bottom */
+}
+
+.explore-text {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
     font-weight: 600;
-    font-size: 1rem;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 1.5rem;
-    transition: color var(--transition-base);
+    color: var(--text-muted);
+    transition: color 0.3s ease;
 }
 
-.service-link:hover {
-    color: var(--accent-navy);
+.explore-line {
+    flex-grow: 1;
+    height: 1px;
+    background: var(--glass-border);
+    position: relative;
+    overflow: hidden;
 }
 
-.service-link svg {
-    transition: transform var(--transition-base);
+.explore-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--card-gradient);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-link:hover svg {
-    transform: translateX(5px);
+.service-card:hover .explore-text {
+    color: var(--text-primary);
 }
 
-/* Removing old 3D Depth Layers for a cleaner 2.5D look */
-.depth-layer {
-    display: none;
+.service-card:hover .explore-line::after {
+    transform: translateX(100%);
 }
 
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .service-card {
-        padding: 2rem;
-        min-height: 280px;
+        padding: 2rem 1.5rem;
     }
 
-    .service-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2rem;
+    .service-icon-box {
+        width: 55px;
+        height: 55px;
+    }
+
+    .icon-element {
+        font-size: 1.6rem;
     }
 
     .service-title {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .service-description {

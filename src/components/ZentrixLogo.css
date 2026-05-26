@@ -1,0 +1,53 @@
+.zentrix-logo-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+/* Match logo plate to page background — no visible box in dark/light mode */
+.zentrix-logo-wrap--dark {
+    background: var(--bg-primary);
+}
+
+.zentrix-logo-wrap--light {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    box-shadow: 0 1px 8px rgba(15, 23, 42, 0.04);
+}
+
+.zentrix-logo-img {
+    display: block;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Horizontal wordmark — width drives size so text stays readable */
+.zentrix-logo-wrap--navbar .zentrix-logo-img {
+    width: min(280px, 58vw);
+    height: auto;
+    max-height: 72px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+@media (min-width: 1024px) {
+    .zentrix-logo-wrap--navbar .zentrix-logo-img {
+        width: 300px;
+        max-height: 76px;
+    }
+}
+
+@media (max-width: 768px) {
+    .zentrix-logo-wrap--navbar .zentrix-logo-img {
+        width: min(220px, 62vw);
+        max-height: 56px;
+    }
+}
+
+.zentrix-logo-wrap--footer .zentrix-logo-img {
+    height: 64px;
+    max-width: min(280px, 88vw);
+}

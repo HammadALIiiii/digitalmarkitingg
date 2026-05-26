@@ -4,8 +4,8 @@
 
 .portfolio-grid-preview {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 2.5rem;
     margin-bottom: 3rem;
 }
 
@@ -14,10 +14,17 @@
     border-radius: var(--radius-xl);
     overflow: hidden;
     cursor: pointer;
-    min-height: 350px;
+    min-height: 400px;
     display: flex;
     align-items: flex-end;
     transition: all var(--transition-base);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+}
+
+.portfolio-item-preview:hover {
+    box-shadow: 0 0 0 1px var(--accent-secondary), var(--glass-floating-shadow);
+    border-color: var(--accent-secondary);
 }
 
 .portfolio-bg {
@@ -52,20 +59,23 @@
 .portfolio-title {
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
-    color: var(--text-primary);
+    color: #ffffff; /* Force pure white for contrast */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for extra legibility */
 }
 
 .portfolio-description {
     font-size: 1.05rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.9); /* Force near-white */
     line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .portfolio-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0, 0, 0, 0.85) 100%); /* Much darker bottom gradient */
     pointer-events: none;
+    z-index: 1; /* Ensure it sits above the image but below text */
 }
 
 .portfolio-cta {

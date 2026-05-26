@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaCheck, FaWhatsapp, FaClock, FaUserTie, FaShieldAlt, FaTimes } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaPaperPlane, FaCheck, FaWhatsapp, FaClock, FaUserTie, FaShieldAlt, FaTimes } from 'react-icons/fa'
 import { BsWhatsapp } from 'react-icons/bs'
+import { submitWeb3Form } from '../lib/web3forms'
 import './Contact.css'
 
 const Contact = () => {
@@ -29,41 +30,30 @@ const Contact = () => {
         setFormStatus('selection')
     }
 
-    const handleSelection = (type) => {
+    const handleSelection = async (type) => {
         setSuccessType(type)
 
         if (type === 'whatsapp') {
             const text = `*New Project Inquiry*%0A%0A*Name:* ${formData.name}%0A*Service:* ${formData.service}%0A*Email:* ${formData.email}%0A%0A*Message:*%0A${formData.message}`
-            window.open(`https://wa.me/?text=${text}`, '_blank')
+            window.open(`https://wa.me/923116119950?text=${text}`, '_blank')
             setFormStatus('success')
-        } else {
-            setFormStatus('submitting')
+            return
+        }
 
-            // Connect to real backend (Relative path for Vercel)
-            fetch('/api/messages', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: formData.name,
-                    email: formData.email,
-                    subject: `Project Inquiry: ${formData.service}`,
-                    message: formData.message
-                }),
+        setFormStatus('submitting')
+
+        try {
+            await submitWeb3Form({
+                name: formData.name,
+                email: formData.email,
+                service: formData.service,
+                subject: `Project Inquiry: ${formData.service}`,
+                message: formData.message,
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        setFormStatus('success')
-                    } else {
-                        setFormStatus('error')
-                    }
-                })
-                .catch(error => {
-                    console.error('Submission error:', error)
-                    setFormStatus('error')
-                })
+            setFormStatus('success')
+        } catch (error) {
+            console.error('Submission error:', error)
+            setFormStatus('error')
         }
     }
 
@@ -126,11 +116,11 @@ const Contact = () => {
                             </div>
 
                             <div className="mini-contact-info">
-                                <a href="mailto:sulman12186@gmail.com" className="mini-link">
-                                    <FaEnvelope /> sulman12186@gmail.com
+                                <a href="mailto:info.zentrixagency@gmail.com" className="mini-link">
+                                    <FaEnvelope /> info.zentrixagency@gmail.com
                                 </a>
-                                <a href="tel:+15551234567" className="mini-link">
-                                    <FaPhone /> +1 (555) 123-4567
+                                <a href="tel:+923116119950" className="mini-link">
+                                    <FaPhone /> +92 311 6119950
                                 </a>
                             </div>
                         </motion.div>

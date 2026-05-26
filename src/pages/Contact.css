@@ -1,6 +1,12 @@
 .contact-page {
-    padding-top: 80px;
+    padding-top: var(--page-offset-top);
     min-height: 100vh;
+    position: relative;
+}
+
+.contact-section {
+    position: relative;
+    z-index: 1;
 }
 
 .contact-split-layout {
@@ -145,7 +151,6 @@
 
 .form-input:focus,
 .form-select:focus {
-    outline: none;
     border-color: var(--accent-gold);
     background: var(--bg-primary);
     box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
@@ -154,10 +159,10 @@
 .submit-btn {
     width: 100%;
     padding: 1rem;
-    background: var(--primary-gradient);
+    background: var(--btn-primary-bg);
     border: none;
     border-radius: 12px;
-    color: #fff;
+    color: var(--btn-primary-text);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;

@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
@@ -10,44 +11,47 @@ import Contact from './pages/Contact'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollProgress from './components/ScrollProgress'
 import PageTransition from './components/PageTransition'
-import AdminPanel from './pages/AdminPanel'
+import ProductModal from './components/ProductModal'
+import SiteBackground from './components/SiteBackground'
 import './App.css'
-
-function AnimatedRoutes() {
-    const location = useLocation()
-
-    return (
-        <AnimatePresence mode="wait">
-            <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<PageTransition><Home /></PageTransition>} />
-                <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-                <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
-                <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
-                <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
-                <Route path="/admin" element={<PageTransition><AdminPanel /></PageTransition>} />
-            </Routes>
-        </AnimatePresence>
-    )
-}
 
 function App() {
     return (
         <Router>
-            <div className="app">
-                {/* Animated Background Mesh */}
-                <div className="bg-gradient-mesh" />
-
-                {/* Scroll Progress Indicator */}
-                <ScrollProgress />
-
-                <ScrollToTop />
-                <Navbar />
-
-                <AnimatedRoutes />
-
-                <Footer />
-            </div>
+            <AppContent />
         </Router>
+    )
+}
+
+const AppContent = () => {
+    const location = useLocation()
+    const [selectedProduct, setSelectedProduct] = useState(null)
+    return (
+        <div className="app">
+            <SiteBackground />
+            <div className="bg-gradient-mesh" />
+
+            {/* Scroll Progress Indicator */}
+            <ScrollProgress />
+
+            <ScrollToTop />
+            <Navbar />
+
+            <AnimatePresence mode="wait">
+                <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+                    <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                    <Route path="/services" element={<PageTransition><Services onServiceClick={(s) => setSelectedProduct(s)} /></PageTransition>} />
+                    <Route path="/portfolio" element={<PageTransition><Portfolio /></PageTransition>} />
+                    <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+                </Routes>
+            </AnimatePresence>
+
+            <Footer />
+
+            {/* Global Product Modal */}
+            <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+        </div>
     )
 }
 

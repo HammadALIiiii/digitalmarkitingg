@@ -1,39 +1,32 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, useInView } from 'framer-motion'
 import ServiceCard from './ServiceCard'
+import { DEFAULT_SERVICES } from '../data/services'
 import './ServicesPreview.css'
 
-const ServicesPreview = () => {
+const ServicesPreview = ({ onServiceClick }) => {
     const sectionRef = useRef(null)
     const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+    const [dynamicServices, setDynamicServices] = useState(DEFAULT_SERVICES)
 
-    const services = [
-        {
-            id: 1,
-            title: 'Digital Marketing',
-            description: 'Scale your ROI with data-driven Facebook & Google Ads and SEO strategies.',
-            icon: '📣',
-            gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            delay: 0.1,
-        },
-        {
-            id: 2,
-            title: 'Website & App Dev',
-            description: 'Custom business sites, E-commerce stores, and native mobile applications.',
-            icon: '💻',
-            gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            delay: 0.2,
-        },
-        {
-            id: 3,
-            title: 'Automation & AI',
-            description: 'Streamline your operations with CRM setup and intelligent AI Chatbots.',
-            icon: '🤖',
-            gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            delay: 0.3,
-        },
-    ]
+    useEffect(() => {
+        fetch('/api/services')
+            .then(res => res.json())
+            .then(data => {
+                if (Array.isArray(data)) setDynamicServices(data)
+            })
+            .catch(() => { /* Keep using static fallback */ })
+    }, [])
+
+    // Services are now fetched entirely from the backend (excluding Digital Products for preview)
+    const allServices = dynamicServices
+        .filter(s => s.category !== 'Product Catalog')
+        .slice(0, 6)
+        .map((s, i) => ({
+            ...s,
+            delay: 0.1 * (i + 1)
+        }))
 
     return (
         <section id="services" className="services-preview section" ref={sectionRef}>
@@ -56,14 +49,17 @@ const ServicesPreview = () => {
                 </motion.div>
 
                 <div className="services-grid-preview">
-                    {services.map((service, index) => (
+                    {allServices.map((service, index) => (
                         <motion.div
                             key={service.id}
                             initial={{ opacity: 0, y: 50 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: service.delay }}
                         >
-                            <ServiceCard service={service} />
+                            <ServiceCard
+                                service={service}
+                                onClick={() => onServiceClick(service)}
+                            />
                         </motion.div>
                     ))}
                 </div>

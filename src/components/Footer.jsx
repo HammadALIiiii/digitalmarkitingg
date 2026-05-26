@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FaTwitter, FaLinkedin, FaGithub, FaDribbble, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaTwitter, FaLinkedin, FaGithub, FaDribbble, FaEnvelope, FaPhone } from 'react-icons/fa'
+import ZentrixLogo from './ZentrixLogo'
 import './Footer.css'
 
 const Footer = () => {
@@ -13,20 +15,19 @@ const Footer = () => {
         { name: 'Dribbble', icon: <FaDribbble />, url: 'https://dribbble.com' },
     ]
 
-    const services = [
-        'Digital Marketing',
-        'Website Development',
-        'App Development',
-        'Branding & Design',
-        'Automation & AI Solutions',
-        'Digital Products',
+    const footerServices = [
+        { name: 'Digital Marketing', path: '/services' },
+        { name: 'Website Development', path: '/services' },
+        { name: 'App Development', path: '/services' },
+        { name: 'Branding & Design', path: '/services' },
+        { name: 'Automation & AI', path: '/services' },
     ]
 
     const company = [
         { name: 'About Us', path: '/about' },
         { name: 'Our Team', path: '/about' },
-        { name: 'Careers', path: '/contact' },
-        { name: 'Blog', path: '/' },
+        { name: 'Portfolio', path: '/portfolio' },
+        { name: 'Contact', path: '/contact' },
     ]
 
     const resources = [
@@ -35,6 +36,18 @@ const Footer = () => {
         'Case Studies',
         'Support Center',
     ]
+
+    const [subscribed, setSubscribed] = useState(false)
+    const [email, setEmail] = useState('')
+
+    const handleSubscribe = (e) => {
+        e.preventDefault()
+        if (email) {
+            setSubscribed(true)
+            setEmail('')
+            setTimeout(() => setSubscribed(false), 5000)
+        }
+    }
 
     return (
         <footer className="footer">
@@ -55,11 +68,16 @@ const Footer = () => {
                             Get the latest updates on design trends, tech insights, and exclusive offers.
                         </p>
                     </div>
-                    <form className="newsletter-form">
+                    <form className="newsletter-form" onSubmit={handleSubscribe}>
+                        <label htmlFor="newsletter-email" className="visually-hidden">Email for newsletter</label>
                         <input
+                            id="newsletter-email"
                             type="email"
                             placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                             className="newsletter-input glass"
+                            required
                         />
                         <motion.button
                             type="submit"
@@ -67,14 +85,25 @@ const Footer = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Subscribe
+                            {subscribed ? 'Subscribed!' : 'Subscribe'}
                         </motion.button>
                     </form>
+                    {subscribed && (
+                        <motion.p
+                            className="newsletter-success"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            style={{ color: '#95BF47', marginTop: '1rem', fontSize: '0.9rem' }}
+                        >
+                            Thank you for subscribing! Check your email for updates.
+                        </motion.p>
+                    )}
                 </motion.div>
 
                 {/* Main Footer Content */}
                 <div className="footer-content">
                     <motion.div
+                        id="footer-brand"
                         className="footer-brand"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -83,27 +112,22 @@ const Footer = () => {
                     >
                         <Link to="/">
                             <div className="footer-logo">
-                                <span className="logo-text gradient-text">ZENTRIX</span>
-                                <div className="logo-dot" />
+                                <ZentrixLogo variant="footer" />
                             </div>
                         </Link>
                         <p className="footer-tagline">
-                            Crafting digital experiences that inspire and innovate. We transform ideas into reality with cutting-edge technology and stunning design.
+                            Dubai's premier digital architecture firm. We specialize in transforming complex business goals into high-performance digital realities.
                         </p>
 
                         {/* Contact Info */}
                         <div className="footer-contact">
                             <div className="contact-item">
                                 <FaEnvelope className="contact-icon" />
-                                <a href="mailto:sulman12186@gmail.com">sulman12186@gmail.com</a>
+                                <a href="mailto:info.zentrixagency@gmail.com">info.zentrixagency@gmail.com</a>
                             </div>
                             <div className="contact-item">
                                 <FaPhone className="contact-icon" />
-                                <a href="tel:+15551234567">+1 (555) 123-4567</a>
-                            </div>
-                            <div className="contact-item">
-                                <FaMapMarkerAlt className="contact-icon" />
-                                <span>Global Operations</span>
+                                <a href="tel:+923116119950">+92 (311) 611-9950</a>
                             </div>
                         </div>
                     </motion.div>
@@ -116,13 +140,13 @@ const Footer = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                     >
                         <h4 className="footer-heading">Services</h4>
-                        {services.map((service, index) => (
+                        {footerServices.map((service, index) => (
                             <Link
                                 key={index}
-                                to="/services"
+                                to={service.path}
                                 className="footer-link"
                             >
-                                {service}
+                                {service.name}
                             </Link>
                         ))}
                     </motion.div>
@@ -200,10 +224,10 @@ const Footer = () => {
                             </div>
                         </div>
                     </motion.div>
-                </div>
+                </div >
 
                 {/* Footer Bottom */}
-                <motion.div
+                < motion.div
                     className="footer-bottom"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -211,24 +235,22 @@ const Footer = () => {
                     transition={{ duration: 0.6, delay: 0.5 }}
                 >
                     <p className="copyright">
-                        © {currentYear} Zentrix Agency. All rights reserved. Made with ❤️ for Global Impact.
+                        © {currentYear} Zentrix Agency. Dubai's Digital Vision & Global Impact.
                     </p>
                     <div className="footer-bottom-links">
                         <a href="#" className="footer-bottom-link">Privacy Policy</a>
                         <span className="separator">•</span>
                         <a href="#" className="footer-bottom-link">Terms of Service</a>
-                        <span className="separator">•</span>
-                        <a href="#" className="footer-bottom-link">Cookie Policy</a>
                     </div>
-                </motion.div>
-            </div>
+                </motion.div >
+            </div >
 
             {/* Decorative Elements */}
-            <div className="footer-decoration">
+            < div className="footer-decoration" >
                 <div className="decoration-circle circle-1" />
                 <div className="decoration-circle circle-2" />
-            </div>
-        </footer>
+            </div >
+        </footer >
     )
 }
 

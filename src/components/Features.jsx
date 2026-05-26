@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { FiActivity, FiZap, FiBox, FiShield, FiCpu, FiGlobe } from 'react-icons/fi'
 import './Features.css'
 
 const Features = () => {
@@ -8,29 +9,41 @@ const Features = () => {
 
     const features = [
         {
-            title: 'Lightning Fast',
-            description: 'Optimized performance for instant loading and smooth interactions.',
-            stat: '99%',
-            label: 'Performance Score',
+            title: 'ROI-Driven Strategy',
+            description: 'Every campaign we launch is backed by deep data analysis and a commitment to measurable returns.',
+            icon: <FiActivity />,
+            size: 'bento-large'
         },
         {
-            title: 'Fully Responsive',
-            description: 'Perfect experience across all devices and screen sizes.',
-            stat: '100%',
-            label: 'Mobile Optimized',
+            title: 'Global Reach',
+            description: 'Scale your brand across borders with specialized GCC and international marketing expertise.',
+            icon: <FiGlobe />,
+            size: 'bento-small'
         },
         {
-            title: 'SEO Optimized',
-            description: 'Built with best practices for maximum search visibility.',
-            stat: 'A+',
-            label: 'SEO Rating',
+            title: 'Lead Automation',
+            description: 'Capture and nurture leads automatically using our advanced AI-driven CRM workflows.',
+            icon: <FiZap />,
+            size: 'bento-small'
         },
         {
-            title: 'Secure & Reliable',
-            description: 'Enterprise-grade security and 99.9% uptime guarantee.',
-            stat: '99.9%',
-            label: 'Uptime',
+            title: 'Brand Protection',
+            description: 'Maintain brand integrity with high-fidelity creative assets and secure data management.',
+            icon: <FiShield />,
+            size: 'bento-medium'
         },
+        {
+            title: 'AI Personalization',
+            description: 'Leverage machine learning to deliver hyper-personalized ad experiences to your audience.',
+            icon: <FiCpu />,
+            size: 'bento-medium'
+        },
+        {
+            title: 'Omnichannel Growth',
+            description: 'Sync your presence across Meta, Google, LinkedIn, and TikTok for a unified brand story.',
+            icon: <FiBox />,
+            size: 'bento-small'
+        }
     ]
 
     return (
@@ -42,26 +55,26 @@ const Features = () => {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className="section-label glass">Why Choose Us</span>
+                    <span className="section-label glass">Platform Capabilities</span>
                     <h2 className="section-title">
-                        Built for <span className="gradient-text">Excellence</span>
+                        Everything you need to <span className="gradient-text">Scale</span>
                     </h2>
                 </motion.div>
 
-                <div className="features-grid">
+                <div className="features-bento">
                     {features.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className="feature-card glass-strong"
+                            className={`bento-card ${feature.size}`}
                             initial={{ opacity: 0, y: 50 }}
                             animate={isInView ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
-                            whileHover={{ y: -10, scale: 1.02 }}
                         >
-                            <div className="feature-stat gradient-text">{feature.stat}</div>
-                            <div className="feature-label">{feature.label}</div>
-                            <h3 className="feature-title">{feature.title}</h3>
-                            <p className="feature-description">{feature.description}</p>
+                            <div>
+                                <div className="feature-icon">{feature.icon}</div>
+                                <h3 className="feature-title">{feature.title}</h3>
+                                <p className="feature-description">{feature.description}</p>
+                            </div>
                             <div className="feature-glow" />
                         </motion.div>
                     ))}

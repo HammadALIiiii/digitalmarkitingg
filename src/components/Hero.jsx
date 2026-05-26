@@ -52,134 +52,123 @@ const Hero = () => {
 
     return (
         <section id="home" className="hero" ref={heroRef} onMouseMove={handleMouseMove}>
-            <motion.div className="hero-content" style={{ y, opacity }}>
-                <div className="hero-badge-container">
-                    <motion.div
-                        className="hero-badge glass"
-                        initial={{ opacity: 0, y: 20 }}
+            <div className="hero-grid container">
+                <motion.div className="hero-text-content" style={{ y, opacity }}>
+
+
+                    <motion.h1
+                        className="hero-title"
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <span className="badge-dot animate-pulse" />
-                        <span>Executive Strategic Partner</span>
+                        Architecting
+                        <br />
+                        <span className="gradient-text">Digital Excellence</span>
+                    </motion.h1>
+
+                    <motion.p
+                        className="hero-description"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        We partner with Dubai's most ambitious enterprises to engineer high-impact digital solutions that redefine industry standards.
+                    </motion.p>
+
+                    <motion.div
+                        className="hero-cta"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        <Link to="/contact">
+                            <motion.button
+                                ref={btnPrimaryRef}
+                                className="btn-primary"
+                                whileTap={{ scale: 0.98 }}
+                            >
+                                Start Your Transformation
+                            </motion.button>
+                        </Link>
+                        <Link to="/portfolio">
+                            <motion.button
+                                ref={btnSecondaryRef}
+                                className="btn-secondary glass"
+                                whileTap={{ scale: 0.98 }}
+                                type="button"
+                            >
+                                Explore Our Work
+                            </motion.button>
+                        </Link>
                     </motion.div>
-                </div>
 
-                <motion.h1
-                    className="hero-title"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    Scale Your Global
-                    <br />
-                    <span className="gradient-text">Digital Authority</span>
-                </motion.h1>
-
-                <motion.p
-                    className="hero-description"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    We engineer high-performance digital ecosystems and ROI-driven marketing
-                    <br />
-                    strategies for ambitious brands ready to lead their industries.
-                </motion.p>
-
-                <motion.div
-                    className="hero-cta"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                >
-                    <Link to="/contact">
-                        <motion.button
-                            ref={btnPrimaryRef}
-                            className="btn-primary"
-                            whileHover={{ scale: 1.05, boxShadow: '0 20px 60px rgba(102, 126, 234, 0.4)' }}
-                            whileTap={{ scale: 0.95 }}
-                            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                        >
-                            Get Started
-                        </motion.button>
-                    </Link>
-                    <motion.button
-                        ref={btnSecondaryRef}
-                        className="btn-secondary glass"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    <motion.div
+                        className="hero-trust"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 1 }}
                     >
-                        View Our Work
-                    </motion.button>
+                        <span className="trust-label">Trusted by industry leaders in</span>
+                        <div className="trust-locations">
+                            <span>DUBAI</span>
+                            <span className="trust-dot"></span>
+                            <span>ABU DHABI</span>
+                            <span className="trust-dot"></span>
+                            <span>LONDON</span>
+                            <span className="trust-dot"></span>
+                            <span>SINGAPORE</span>
+                        </div>
+                    </motion.div>
                 </motion.div>
 
                 <motion.div
-                    className="hero-social-proof"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
+                    className="hero-visual"
+                    initial={{ opacity: 0, scale: 0.8, rotateY: 20 }}
+                    animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                    transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    style={{ 
+                        perspective: '2000px',
+                        transformStyle: 'preserve-3d'
+                    }}
                 >
-                    <span className="proof-label">Trusted by industry leaders across</span>
-                    <div className="proof-badges">
-                        <span>USA</span>
-                        <span className="proof-dot"></span>
-                        <span>UK</span>
-                        <span className="proof-dot"></span>
-                        <span>UAE</span>
-                        <span className="proof-dot"></span>
-                        <span>SINGAPORE</span>
-                    </div>
-                </motion.div>
+                    <motion.div 
+                        className="visual-container"
+                        style={{ 
+                            rotateX: mousePosition.y * 2,
+                            rotateY: mousePosition.x * 2,
+                        }}
+                    >
+                        <img 
+                            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200" 
+                            alt="Data Analytics Interface" 
+                            className="hero-main-image"
+                        />
+                        <div className="visual-overlay" />
+                        
+                        {/* Floating Tech Elements */}
+                        <motion.div 
+                            className="floating-card glass"
+                            animate={{ y: [0, -20, 0] }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            style={{ top: '20%', right: '-10%' }}
+                        >
+                            <span className="card-val">+300%</span>
+                            <span className="card-label">Growth Rate</span>
+                        </motion.div>
 
-                {/* 3D Floating Elements with Enhanced Parallax - Only render if not mobile or use simplified styling */}
-                <motion.div
-                    className="floating-element element-1 animate-glow"
-                    style={{
-                        x: mousePosition.x * 3,
-                        y: mousePosition.y * 3,
-                    }}
-                    animate={{
-                        y: [0, -20, 0],
-                    }}
-                    transition={{
-                        duration: 4,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                    }}
-                />
-                <motion.div
-                    className="floating-element element-2 animate-glow"
-                    style={{
-                        x: mousePosition.x * -2,
-                        y: mousePosition.y * -2,
-                    }}
-                    animate={{
-                        y: [0, 20, 0],
-                    }}
-                    transition={{
-                        duration: 5,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                    }}
-                />
-                <motion.div
-                    className="floating-element element-3 animate-glow"
-                    style={{
-                        x: mousePosition.x * 4,
-                        y: mousePosition.y * 4,
-                    }}
-                    animate={{
-                        y: [0, -30, 0],
-                    }}
-                    transition={{
-                        duration: 6,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                    }}
-                />
-            </motion.div>
+                        <motion.div 
+                            className="floating-card glass"
+                            animate={{ y: [0, 20, 0] }}
+                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                            style={{ bottom: '20%', left: '-10%' }}
+                        >
+                            <span className="card-val">ROI Focused</span>
+                            <span className="card-label">Strategic Growth</span>
+                        </motion.div>
+                    </motion.div>
+                </motion.div>
+            </div>
 
             {/* Scroll Indicator */}
             <motion.div

@@ -1,0 +1,89 @@
+.methodology {
+    background: var(--bg-secondary);
+    position: relative;
+    border-top: 1px solid var(--glass-border);
+}
+
+.methodology-timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 3rem; /* Aligned with the middle of the number */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--glass-border) 10%, var(--glass-border) 90%, transparent);
+    z-index: 1;
+}
+
+.methodology-step {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step-number {
+    font-size: 5rem;
+    font-weight: 800;
+    font-family: var(--font-display);
+    line-height: 1;
+    opacity: 0.5;
+    background: var(--bg-secondary); /* Cover the line behind it */
+    width: fit-content;
+    padding-right: 1rem;
+}
+
+.step-content {
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    height: 100%;
+    transition: all var(--transition-base);
+}
+
+.methodology-step:hover .step-content {
+    box-shadow: 0 0 0 1px var(--glass-border), var(--glass-floating-shadow);
+    transform: translateY(-5px);
+    background: var(--bg-primary);
+}
+
+.step-title {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.step-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .methodology-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .timeline-line {
+        display: none; /* Too complex to route on 2 columns simply, rely on cards */
+    }
+}
+
+@media (max-width: 768px) {
+    .methodology-timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
